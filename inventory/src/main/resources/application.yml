@@ -6,6 +6,15 @@ spring:
     username: inventory-user
     password: inventory123
   jpa:
-    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties.hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc.lob.non_contextual_creation: true
     hibernate:
       ddl-auto: update
+    show-sql: false
+
+---
+spring:
+  profiles: windows
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eCommerce-inventory
